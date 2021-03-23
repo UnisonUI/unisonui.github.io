@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on UnisonUI</title>
+    <link>https://unisonui.tech/categories/</link>
+    <description>Recent content in Categories on UnisonUI</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language><atom:link href="https://unisonui.tech/categories/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

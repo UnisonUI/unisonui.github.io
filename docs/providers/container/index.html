@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+  <meta name="generator" content="Hugo 0.82.0" />
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Container provider</title><meta name="description" content="How to use container provider" /> 
+
+
+
+
+
+  <meta name="author" content="UnisonUI">
+
+
+<meta property="og:title" content="Container provider" />
+<meta property="og:description" content="How to use container provider" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://unisonui.tech/docs/providers/container/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2021-01-18T18:25:09&#43;00:00" />
+<meta property="article:modified_time" content="2021-01-18T18:25:09&#43;00:00" />
+
+
+
+
+
+
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E765F5MQF7"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-E765F5MQF7', { 'anonymize_ip': false });
+}
+</script>
+
+
+
+<link rel="canonical" href="https://unisonui.tech/docs/providers/container/" />  
+
+<link rel="icon" type="image/png" href="https://unisonui.tech/images/favicons/favicon-32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="https://unisonui.tech/images/favicons/favicon-16.png" sizes="16x16" />
+<link href="https://unisonui.tech/css/style.min.0ac3200bb16462a3d94522e3027480f440fa75b5d76404a1134afcd05233c889.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+  <div class="shell">
+    <header class="center w-screen"> <nav class="border-gray-700 border-b-2">
+  <div class="flex items-center justify-between h-16">
+    <div class="flex items-center">
+      <div class="flex-shrink-0">
+        <a href="/"><img class="h-8 w-8" src="https://unisonui.tech/images/favicons/favicon-32.png" alt="UnisonUI"></a>
+      </div>
+      <div class="px-3 py-2 text-lg font-medium text-gray-300 hover:text-white">
+        <a href="/">UnisonUI</a>
+      </div>
+    </div>
+    <div class="hidden md:block">
+      <div class="menu desktop">
+        <a href="/docs/getting-started/usage/"  class="">
+           Docs
+        </a>
+        
+        <a href="/releases/"  class="">
+           Releases
+        </a>
+        
+        <a href="https://github.com/UnisonUI/UnisonUI"  target="_blank"  class="">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> Github
+        </a>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="md:hidden">
+    <div class="menu mobile flex justify-between">
+      <a href="/docs/getting-started/usage/"  class="">
+         Docs
+      </a>
+      
+      <a href="/releases/"  class="">
+         Releases
+      </a>
+      
+      <a href="https://github.com/UnisonUI/UnisonUI"  target="_blank"  class="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> Github
+      </a>
+      
+    </div>
+</nav>
+ </header>
+    <main class="center w-screen">
+      <div class="m-4">
+        
+<div class="content">
+  
+
+<div class="flex -mr-2 md:hidden">
+  <button id="toc-button" class="inline-flex items-center justify-center p-2 text-gray-500 hover:text-gray-600 focus:outline-none">
+    <span class="sr-only">Open main menu</span>
+    <svg class="block w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+    <svg class="hidden w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+</div>
+<aside class="left-menu">
+  <div class="flex-grow">
+    <ul>
+      
+      <li>Getting started</li>
+      <li>
+        <ul>
+          
+          <li><a href="https://unisonui.tech/docs/getting-started/usage/" >Usage</a></li>
+          
+          
+          <li><a href="https://unisonui.tech/docs/getting-started/configuration/" >Configuration</a></li>
+          
+          
+        </ul>
+      </li>
+      
+      <li>Providers</li>
+      <li>
+        <ul>
+          
+          <li><a href="https://unisonui.tech/docs/providers/git/" >Git provider</a></li>
+          
+          
+          <li><a href="https://unisonui.tech/docs/providers/container/"  class="active" >Container provider</a></li>
+          
+          
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#default-configuration">Default configuration</a></li>
+    <li><a href="#grpc-specification-support">GRPC specification support</a></li>
+    <li><a href="#docker-services-discovery">Docker services discovery</a>
+      <ul>
+        <li><a href="#usage">Usage</a></li>
+      </ul>
+    </li>
+    <li><a href="#kubernetes-services-discovery">Kubernetes services discovery</a>
+      <ul>
+        <li><a href="#usage-1">Usage</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav><script type="text/javascript" src="/js/main.js"></script>
+
+
+
+          
+          
+          <li><a href="https://unisonui.tech/docs/providers/webhook/" >Webhook provider</a></li>
+          
+          
+        </ul>
+      </li>
+      
+    </ul>
+  </div>
+</aside>
+
+  <article>
+    <h1 id="container-provider">Container provider</h1>
+<p>The container provider allow <em>UnisonUI</em> to discover services through <code>Docker</code> and <code>Kubernetes</code></p>
+<h2 id="default-configuration">Default configuration</h2>
+<pre><code class="language-hocon" data-lang="hocon">unisonui {
+  providers += &quot;tech.unisonui.providers.ContainerProvider&quot;
+  provider.container {
+      kubernetes {
+        enabled = yes // Enable discovery through Kubernetes
+        polling-interval = &quot;1 minute&quot; // Interval between each Kubernetes API.
+      }
+
+      docker {
+        enabled = yes // Enable discovery through Docker
+        host =  &quot;unix:///var/run/docker.sock&quot; // Host of the docker daemon
+      }
+
+      // List of labels used by the provider to detect specification files
+      labels {
+        service-name = &quot;unisonui.service-name&quot; // Service name. This label is mandatory.
+
+        openapi {
+          port  = &quot;unisonui.openapi.port&quot; // HTTP port where the openapi specification file can be found.
+          protocol  = &quot;unisonui.openapi.protocol&quot; // Protocol to use (default to http)
+          specification-path = &quot;unisonui.openapi.path&quot; // URI of the openapi specification file. Default to /specification.yaml
+          use-proxy = &quot;unisonui.openapi.use-proxy&quot; // Should enable the proxy for this service (disabled by default)
+        }
+
+        grpc {
+          port = &quot;unisonui.grpc.port&quot; // GRPC port where the reflection server can be contacted.
+          tls = &quot;unisonui.grpc.tls&quot; // Disabled by default. Tell the GRPC to use a TLS connection.
+        }
+      }
+    }
+}
+</code></pre><h2 id="grpc-specification-support">GRPC specification support</h2>
+<p>Both providers support GRPC specifications using.</p>
+<p>In order to retrieve those specifications, your services need to expose the
+<a href="https://github.com/grpc/grpc/blob/master/doc/server-reflection.md">GRPC server reflection protocol</a>.</p>
+<h2 id="docker-services-discovery">Docker services discovery</h2>
+<p>The docker services discovery list and detect all running containers in real time.</p>
+<p><strong>Warning: the docker provider DOES NOT support TLS connection yet</strong></p>
+<h3 id="usage">Usage</h3>
+<p>A compatible container <strong>MUST</strong> include the following labels:</p>
+<ul>
+<li>A label specifying the service&rsquo;s name <code>unisonui.service-name</code></li>
+<li>A label specifying the port where the OpenApi spec lays <code>unisonui.openapi.port</code> for OpenApi specifications.</li>
+<li>A label specifying the port where the GRPC spec lays <code>unisonui.grpc.port</code> for GRPC specifications.</li>
+</ul>
+<p>Optional labels:</p>
+<ul>
+<li>
+<p>A label specifying the path where the OpenApi spec lays <code>unisonui.openapi.path</code>.</p>
+<p>Default path: <code>/specification.yaml</code></p>
+</li>
+</ul>
+<p>Example:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">docker  run --rm -l <span class="s2">&#34;unisonui.port=80&#34;</span> -l <span class="s2">&#34;unisonui.service-name=nginx&#34;</span> -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/usr/share/nginx/html:ro nginx:alpine
+</code></pre></div><h2 id="kubernetes-services-discovery">Kubernetes services discovery</h2>
+<p>The Kubernetes services discovery lists and detects all running services in real time.</p>
+<p>In order to discover specifications in Kubernetes, <em>UnisonUI</em> <strong>MUST</strong> run inside the same Kubernetes cluster of your services you want to be discovered.</p>
+<h3 id="usage-1">Usage</h3>
+<p>New services are detected by polling from the Kubernetes API at a regular interval.
+The value for the interval is defined by <code>polling-interval</code> which default to <code>1 minute</code>.</p>
+<p>A compatible service <strong>MUST</strong> have the following labels on it:</p>
+<ul>
+<li>A label specifying the service&rsquo;s name <code>unisonui.service-name</code></li>
+<li>A label specifying the port where the OpenApi spec lays <code>unisonui.openapi.port</code> for OpenApi specifications.</li>
+<li>A label specifying the port where the GRPC spec lays <code>unisonui.grpc.port</code> for GRPC specifications.</li>
+</ul>
+<p>Optional labels:</p>
+<ul>
+<li>
+<p>A label specifying the path where the OpenApi spec lays <code>unisonui.openapi.path</code>.</p>
+<p>Default path is: <code>/specification.yaml</code></p>
+</li>
+</ul>
+<p>Also the services <strong>MUST</strong> have a <code>ClusterIP</code> (the provider will infer the address from the <code>ClusterIP</code>)</p>
+<p>Example:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Service</span><span class="w">
+</span><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">unisonui.openapi.port</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;80&#34;</span><span class="w">
+</span><span class="w">    </span><span class="nt">unisonui.openapi.protocol</span><span class="p">:</span><span class="w"> </span><span class="l">http</span><span class="w">
+</span><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">specification</span><span class="w">
+</span><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">default</span><span class="w">
+</span><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">clusterIP</span><span class="p">:</span><span class="w"> </span><span class="m">10.96.0.2</span><span class="w">
+</span><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">80tcp02</span><span class="w">
+</span><span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span><span class="w">    </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l">TCP</span><span class="w">
+</span><span class="w">    </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">selector</span><span class="p">:</span><span class="w"> </span><span class="l">deployment</span><span class="w">
+</span><span class="w">  </span><span class="nt">sessionAffinity</span><span class="p">:</span><span class="w"> </span><span class="l">None</span><span class="w">
+</span><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">ClusterIP</span><span class="w">
+</span><span class="w"></span><span class="nt">status</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">loadBalancer</span><span class="p">:</span><span class="w"> </span>{}<span class="w">
+</span><span class="w"></span><span class="nn">---</span><span class="w">
+</span><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">apps/v1</span><span class="w">
+</span><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Deployment</span><span class="w">
+</span><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">selector</span><span class="p">:</span><span class="w"> </span><span class="l">deployment</span><span class="w">
+</span><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">openapi</span><span class="w">
+</span><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">default</span><span class="w">
+</span><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">progressDeadlineSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">600</span><span class="w">
+</span><span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w">  </span><span class="nt">revisionHistoryLimit</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">
+</span><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">selector</span><span class="p">:</span><span class="w"> </span><span class="l">deployment</span><span class="w">
+</span><span class="w">  </span><span class="nt">strategy</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">rollingUpdate</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">maxSurge</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w">      </span><span class="nt">maxUnavailable</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">RollingUpdate</span><span class="w">
+</span><span class="w">  </span><span class="nt">template</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">selector</span><span class="p">:</span><span class="w"> </span><span class="l">deployment</span><span class="w">
+</span><span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">nginx:alpine</span><span class="w">
+</span><span class="w">        </span><span class="nt">imagePullPolicy</span><span class="p">:</span><span class="w"> </span><span class="l">Always</span><span class="w">
+</span><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">openapi</span><span class="w">
+</span><span class="w">        </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">80tcp02</span><span class="w">
+</span><span class="w">          </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l">TCP</span><span class="w">
+</span><span class="w">        </span><span class="nt">resources</span><span class="p">:</span><span class="w"> </span>{}<span class="w">
+</span><span class="w">        </span><span class="nt">securityContext</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">allowPrivilegeEscalation</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="w">          </span><span class="nt">capabilities</span><span class="p">:</span><span class="w"> </span>{}<span class="w">
+</span><span class="w">          </span><span class="nt">privileged</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="w">          </span><span class="nt">readOnlyRootFilesystem</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="w">          </span><span class="nt">runAsNonRoot</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="w">        </span><span class="nt">stdin</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">        </span><span class="nt">terminationMessagePath</span><span class="p">:</span><span class="w"> </span><span class="l">/dev/termination-log</span><span class="w">
+</span><span class="w">        </span><span class="nt">terminationMessagePolicy</span><span class="p">:</span><span class="w"> </span><span class="l">File</span><span class="w">
+</span><span class="w">        </span><span class="nt">tty</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">      </span><span class="nt">dnsPolicy</span><span class="p">:</span><span class="w"> </span><span class="l">ClusterFirst</span><span class="w">
+</span><span class="w">      </span><span class="nt">restartPolicy</span><span class="p">:</span><span class="w"> </span><span class="l">Always</span><span class="w">
+</span><span class="w">      </span><span class="nt">schedulerName</span><span class="p">:</span><span class="w"> </span><span class="l">default-scheduler</span><span class="w">
+</span><span class="w">      </span><span class="nt">securityContext</span><span class="p">:</span><span class="w"> </span>{}<span class="w">
+</span><span class="w">      </span><span class="nt">terminationGracePeriodSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">30</span><span class="w">
+</span></code></pre></div>
+    <nav class="previous-next">
+      
+      <a href="https://unisonui.tech/docs/providers/git/">
+        <div>
+          <h3 class="inline-flex mb-3 text-2xl font-semibold">
+            <svg class="mr-2" width="24" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1.02698 11.9929L5.26242 16.2426L6.67902 14.8308L4.85766 13.0033L22.9731 13.0012L22.9728 11.0012L4.85309 11.0033L6.6886 9.17398L5.27677 7.75739L1.02698 11.9929Z" fill="currentColor" />
+            </svg>
+            Previous
+          </h3>
+          <p class="text-lg">Git provider</p>
+        </div>
+      </a>
+      
+        <a href="https://unisonui.tech/docs/providers/webhook/">
+          <div class="text-right">
+            <h3 class="inline-flex mb-3 text-2xl font-semibold ">
+              Next
+              <svg class="ml-2" width="24" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23.0677 11.9929L18.818 7.75739L17.4061 9.17398L19.2415 11.0032L0.932469 11.0012L0.932251 13.0012L19.2369 13.0032L17.4155 14.8308L18.8321 16.2426L23.0677 11.9929Z" fill="currentColor" />
+              </svg>
+            </h3>
+            <p class="text-lg">Webhook provider</p>
+          </div>
+        </a>
+    </nav>
+  </article>
+
+</div>
+
+      </div>
+    </main>
+    <footer class="center w-screen"><p class="text-center my-8">UnisonUI &copy; Licence MIT.</p>
+</footer>
+  </div>
+ 
+</body>
+
+</html>

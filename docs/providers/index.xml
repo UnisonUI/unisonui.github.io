@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Providers on UnisonUI</title>
+    <link>https://unisonui.tech/docs/providers/</link>
+    <description>Recent content in Providers on UnisonUI</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Sat, 06 Feb 2021 00:43:36 +0000</lastBuildDate><atom:link href="https://unisonui.tech/docs/providers/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git provider</title>
+      <link>https://unisonui.tech/docs/providers/git/</link>
+      <pubDate>Wed, 13 Jan 2021 17:37:44 +0000</pubDate>
+      
+      <guid>https://unisonui.tech/docs/providers/git/</guid>
+      <description>Git provider How does it work The git provider is used to retrieve specification files from git repositories.
+Each repositories are cloned then pulled at regular interval (cache-duration).
+The repositories can be set manually or be discovered from Github.
+Prerequisite This provider requires git to be available on the host.
+Also if you are intending to use Protobuf specification files, you need to have protoc available.
+If you are using the docker image, there is no need to install them.</description>
+    </item>
+    
+    <item>
+      <title>Container provider</title>
+      <link>https://unisonui.tech/docs/providers/container/</link>
+      <pubDate>Mon, 18 Jan 2021 18:25:09 +0000</pubDate>
+      
+      <guid>https://unisonui.tech/docs/providers/container/</guid>
+      <description>Container provider The container provider allow UnisonUI to discover services through Docker and Kubernetes
+Default configuration unisonui {providers += &amp;quot;tech.unisonui.providers.ContainerProvider&amp;quot;provider.container {kubernetes {enabled = yes // Enable discovery through Kubernetespolling-interval = &amp;quot;1 minute&amp;quot; // Interval between each Kubernetes API.}docker {enabled = yes // Enable discovery through Dockerhost = &amp;quot;unix:///var/run/docker.sock&amp;quot; // Host of the docker daemon}// List of labels used by the provider to detect specification fileslabels {service-name = &amp;quot;unisonui.</description>
+    </item>
+    
+    <item>
+      <title>Webhook provider</title>
+      <link>https://unisonui.tech/docs/providers/webhook/</link>
+      <pubDate>Sat, 06 Feb 2021 00:43:36 +0000</pubDate>
+      
+      <guid>https://unisonui.tech/docs/providers/webhook/</guid>
+      <description>Webhook provider This provider allows to directly upload specifications to UnisonUI
+Default configuration unisonui {providers += &amp;quot;tech.unisonui.providers.WebhookProvider&amp;quot;provider.webhook {interface = &amp;quot;0.0.0.0&amp;quot; // Interface where the webhook server listen to.port = 3000 // Port used by the webhook serverself-specification = no // Add the webhook specification to UnisonUI}}Webhook Api specification Here is the OpanAPI specification for the webhook API
+openapi:3.0.3info:title:UnisonUI webhookdescription:&amp;gt;UnisonUI webhook is a service intends to give the ability to UnisonUI to add/remove services through webhook callslicense:name:MITurl:https://raw.</description>
+    </item>
+    
+  </channel>
+</rss>

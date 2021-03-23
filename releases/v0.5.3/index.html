@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+  <meta name="generator" content="Hugo 0.82.0" />
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>v0.5.3</title>
+
+
+
+
+
+  <meta name="author" content="UnisonUI">
+
+
+<meta property="og:title" content="v0.5.3" />
+<meta property="og:description" content="v0.5.3 (2020-06-29) 🪲 Bug Fixes  🐛 Should not delete repository (1f5a1171) 🐛 Fix variable name (eeea6415)  👻 Code Refactoring  💡 Allow git cache, avoid cloning every time (#47) (10fcac7e) 💡 Remove docker java client for a custom on with Akka (#30) (571b4f6f) 💡 Rename swagger by openapi/specification (#27) (39466a89) 💡 Do not send events for no changes (#25) (0984f960) 💡 Refactor the UI (cf9e1f1b) 💡 Add an id to the service to handle name changes (#21) (e7e2e365) core: move every data structure needed by RestUI (f1d67460)  ✨ Features  neumorphism design (#68) (415f9eb5) Create a webhook provider (#42) (f8f5b979) Add a git provider (55893376)  🔧 Build  deps-dev: bump imports-loader from 1." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://unisonui.tech/releases/v0.5.3/" /><meta property="article:section" content="releases" />
+<meta property="article:published_time" content="2020-06-28T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2020-06-28T00:00:00&#43;00:00" />
+
+
+
+
+
+
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E765F5MQF7"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-E765F5MQF7', { 'anonymize_ip': false });
+}
+</script>
+
+
+
+<link rel="canonical" href="https://unisonui.tech/releases/v0.5.3/" />  
+
+<link rel="icon" type="image/png" href="https://unisonui.tech/images/favicons/favicon-32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="https://unisonui.tech/images/favicons/favicon-16.png" sizes="16x16" />
+<link href="https://unisonui.tech/css/style.min.0ac3200bb16462a3d94522e3027480f440fa75b5d76404a1134afcd05233c889.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+  <div class="shell">
+    <header class="center w-screen"> <nav class="border-gray-700 border-b-2">
+  <div class="flex items-center justify-between h-16">
+    <div class="flex items-center">
+      <div class="flex-shrink-0">
+        <a href="/"><img class="h-8 w-8" src="https://unisonui.tech/images/favicons/favicon-32.png" alt="UnisonUI"></a>
+      </div>
+      <div class="px-3 py-2 text-lg font-medium text-gray-300 hover:text-white">
+        <a href="/">UnisonUI</a>
+      </div>
+    </div>
+    <div class="hidden md:block">
+      <div class="menu desktop">
+        <a href="/docs/getting-started/usage/"  class="">
+           Docs
+        </a>
+        
+        <a href="/releases/"  class="">
+           Releases
+        </a>
+        
+        <a href="https://github.com/UnisonUI/UnisonUI"  target="_blank"  class="">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> Github
+        </a>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="md:hidden">
+    <div class="menu mobile flex justify-between">
+      <a href="/docs/getting-started/usage/"  class="">
+         Docs
+      </a>
+      
+      <a href="/releases/"  class="">
+         Releases
+      </a>
+      
+      <a href="https://github.com/UnisonUI/UnisonUI"  target="_blank"  class="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> Github
+      </a>
+      
+    </div>
+</nav>
+ </header>
+    <main class="center w-screen">
+      <div class="m-4">
+        
+<div class="content">
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#-bug-fixes">🪲 Bug Fixes</a></li>
+        <li><a href="#-code-refactoring">👻 Code Refactoring</a></li>
+        <li><a href="#-features">✨ Features</a></li>
+        <li><a href="#-build">🔧 Build</a></li>
+        <li><a href="#-tests">✔️ Tests</a></li>
+        <li><a href="#-documentation">📝 Documentation</a></li>
+        <li><a href="#-continuous-integration">🚀 Continuous Integration</a></li>
+        <li><a href="#-chore">🍏 Chore</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav><script type="text/javascript" src="/js/main.js"></script>
+
+
+
+  <article class="release">
+    <h1 id="v053-2020-06-29">v0.5.3 (2020-06-29)</h1>
+<h3 id="-bug-fixes">🪲 Bug Fixes</h3>
+<ul>
+<li>🐛 Should not delete repository (<a href="https://github.com/UnisonUI/UnisonUI/commit/1f5a1171d33763c20760d21f27f6369275fb1dfe">1f5a1171</a>)</li>
+<li>🐛 Fix variable name (<a href="https://github.com/UnisonUI/UnisonUI/commit/eeea6415071f4827bab038c74e6c5051d68f2576">eeea6415</a>)</li>
+</ul>
+<h3 id="-code-refactoring">👻 Code Refactoring</h3>
+<ul>
+<li>💡 Allow git cache, avoid cloning every time (#47) (<a href="https://github.com/UnisonUI/UnisonUI/commit/10fcac7e56de504487f3dfced87ea7ff0d75c046">10fcac7e</a>)</li>
+<li>💡 Remove docker java client for a custom on with Akka (#30) (<a href="https://github.com/UnisonUI/UnisonUI/commit/571b4f6f3fcb605585d8b644a14e1a63145ee56c">571b4f6f</a>)</li>
+<li>💡 Rename swagger by openapi/specification (#27) (<a href="https://github.com/UnisonUI/UnisonUI/commit/39466a891f9b29b7d27fbf96a835f16cabf6fd5d">39466a89</a>)</li>
+<li>💡 Do not send events for no changes (#25) (<a href="https://github.com/UnisonUI/UnisonUI/commit/0984f960d73a3371f4f4b1eeae490f9c297bf148">0984f960</a>)</li>
+<li>💡 Refactor the UI (<a href="https://github.com/UnisonUI/UnisonUI/commit/cf9e1f1b0ddbdaf4cca62065a94f2aed9f287f51">cf9e1f1b</a>)</li>
+<li>💡 Add an id to the service to handle name changes (#21) (<a href="https://github.com/UnisonUI/UnisonUI/commit/e7e2e3655ef9944dd3fdfa7752a3c8dcd18391a0">e7e2e365</a>)</li>
+<li><strong>core:</strong> move every data structure needed by RestUI (<a href="https://github.com/UnisonUI/UnisonUI/commit/f1d6746017a0f786343269ed482222ddfe4b9626">f1d67460</a>)</li>
+</ul>
+<h3 id="-features">✨ Features</h3>
+<ul>
+<li>neumorphism design (#68) (<a href="https://github.com/UnisonUI/UnisonUI/commit/415f9eb5d4d079b0580e2d76bbc8c8fbb7d16413">415f9eb5</a>)</li>
+<li>Create a webhook provider (#42) (<a href="https://github.com/UnisonUI/UnisonUI/commit/f8f5b9799075a62822bf2556697139e48d13f556">f8f5b979</a>)</li>
+<li>Add a git provider (<a href="https://github.com/UnisonUI/UnisonUI/commit/5589337699f0cb3dac21cf71e0facc8f832f674f">55893376</a>)</li>
+</ul>
+<h3 id="-build">🔧 Build</h3>
+<ul>
+<li><strong>deps-dev:</strong> bump imports-loader from 1.0.0 to 1.1.0 in /rest-ui (#69) (<a href="https://github.com/UnisonUI/UnisonUI/commit/aecf8459c04f24c6060947485789bfc06cd745ae">aecf8459</a>)</li>
+<li><strong>deps-dev:</strong> bump exports-loader from 1.0.1 to 1.1.0 in /rest-ui (#70) (<a href="https://github.com/UnisonUI/UnisonUI/commit/3957cf3ad7a0f9852d64b94ee25d84cafb41a59a">3957cf3a</a>)</li>
+<li><strong>deps-dev:</strong> bump @babel/preset-env in /rest-ui (#67) (<a href="https://github.com/UnisonUI/UnisonUI/commit/9563da6f3d4d2cc6c1dc2235993bb0bf3eb8afb5">9563da6f</a>)</li>
+<li><strong>deps-dev:</strong> bump @babel/core from 7.10.2 to 7.10.3 in /rest-ui (#64) (<a href="https://github.com/UnisonUI/UnisonUI/commit/a8a5ce7e71b20cff31b82ebf77c43c90d7ae2ae4">a8a5ce7e</a>)</li>
+<li><strong>deps-dev:</strong> bump eslint from 7.3.0 to 7.3.1 in /rest-ui (#65) (<a href="https://github.com/UnisonUI/UnisonUI/commit/c60ade5a71b616bc3567d1c8fb07a9b0deb36ef8">c60ade5a</a>)</li>
+<li><strong>deps-dev:</strong> bump @babel/plugin-transform-runtime in /rest-ui (#66) (<a href="https://github.com/UnisonUI/UnisonUI/commit/640a8509f2a46241d6aa4c4999bab596c53ee022">640a8509</a>)</li>
+<li><strong>deps-dev:</strong> bump eslint from 7.2.0 to 7.3.0 in /rest-ui (#62) (<a href="https://github.com/UnisonUI/UnisonUI/commit/9f8ef2a5b7f5babca0b7e877b477ce9dca2331ce">9f8ef2a5</a>)</li>
+<li><strong>deps-dev:</strong> bump @babel/plugin-proposal-object-rest-spread (#61) (<a href="https://github.com/UnisonUI/UnisonUI/commit/c24f07d8da95c2d2687ad12597d6467213ff04e7">c24f07d8</a>)</li>
+<li><strong>deps-dev:</strong> bump @babel/runtime-corejs3 in /rest-ui (#60) (<a href="https://github.com/UnisonUI/UnisonUI/commit/cebe5f281b620c78fe85b2550e7c56d8fd19475f">cebe5f28</a>)</li>
+<li><strong>deps-dev:</strong> bump @babel/register from 7.10.1 to 7.10.3 in /rest-ui (#59) (<a href="https://github.com/UnisonUI/UnisonUI/commit/3bea1aa28238f33df11c1eed7221c151571c8576">3bea1aa2</a>)</li>
+<li><strong>deps-dev:</strong> bump webpack-cli from 3.3.11 to 3.3.12 in /rest-ui (#63) (<a href="https://github.com/UnisonUI/UnisonUI/commit/3750e61e2866337b1c13743b9d1e00a17b0d7c01">3750e61e</a>)</li>
+<li><strong>deps:</strong> bump swagger-ui-react from 3.26.2 to 3.27.0 (<a href="https://github.com/UnisonUI/UnisonUI/commit/12c3fe1a2d0835f174653c6f38970bfa2950cca6">12c3fe1a</a>)</li>
+<li><strong>deps-dev:</strong> bump exports-loader from 1.0.0 to 1.0.1 in /rest-ui (#55) (<a href="https://github.com/UnisonUI/UnisonUI/commit/269fb84f52978445be4806ffe022d1ea2ed46d7e">269fb84f</a>)</li>
+<li><strong>deps-dev:</strong> bump imports-loader from 0.8.0 to 1.0.0 in /rest-ui (#54) (<a href="https://github.com/UnisonUI/UnisonUI/commit/8485f8ec33e11dc05856a4fcd9f330b012ca3f43">8485f8ec</a>)</li>
+<li><strong>deps-dev:</strong> bump terser-webpack-plugin in /rest-ui (#56) (<a href="https://github.com/UnisonUI/UnisonUI/commit/704f122b1cc4bf479f229fae20331a2bc6131567">704f122b</a>)</li>
+<li><strong>deps-dev:</strong> bump react-burger-menu in /rest-ui (#57) (<a href="https://github.com/UnisonUI/UnisonUI/commit/24af3cb49f9c1599c0074d109a2b9ab020c54226">24af3cb4</a>)</li>
+<li><strong>deps-dev:</strong> bump terser-webpack-plugin in /rest-ui (#52) (<a href="https://github.com/UnisonUI/UnisonUI/commit/7c444995e82aaf221525071f751a6ea93d683f56">7c444995</a>)</li>
+<li><strong>deps:</strong> bump swagger-ui-react from 3.26.1 to 3.26.2 (<a href="https://github.com/UnisonUI/UnisonUI/commit/3107cacdb8e36281ae3c6b84a67c8a68b8ae9719">3107cacd</a>)</li>
+<li><strong>deps-dev:</strong> bump @fullhuman/postcss-purgecss in /rest-ui (#48) (<a href="https://github.com/UnisonUI/UnisonUI/commit/c5b5d73bfc6a4ca7511c88added73bb84b75c35c">c5b5d73b</a>)</li>
+<li><strong>deps-dev:</strong> bump css-loader from 3.5.3 to 3.6.0 in /rest-ui (#50) (<a href="https://github.com/UnisonUI/UnisonUI/commit/db1ccf316a5ce79f2c464d4a0579026b2711d09e">db1ccf31</a>)</li>
+<li><strong>deps-dev:</strong> bump terser-webpack-plugin in /rest-ui (#51) (<a href="https://github.com/UnisonUI/UnisonUI/commit/16bdac7fed74dab43875b4eaa6759815ea322269">16bdac7f</a>)</li>
+<li><strong>deps:</strong> bump swagger-ui-react from 3.26.0 to 3.26.1 (<a href="https://github.com/UnisonUI/UnisonUI/commit/ae4d619ac98153f7168f62d133b799fe6947d272">ae4d619a</a>)</li>
+<li><strong>deps-dev:</strong> bump exports-loader from 0.7.0 to 1.0.0 (#44) (<a href="https://github.com/UnisonUI/UnisonUI/commit/29644cbe38715120beb9b098dbd21634e553e980">29644cbe</a>)</li>
+<li><strong>deps-dev:</strong> bump eslint-plugin-import (#43) (<a href="https://github.com/UnisonUI/UnisonUI/commit/46ca3bbcb94f0b31306fe6688d4e8402c3f4383b">46ca3bbc</a>)</li>
+<li><strong>deps:</strong> bump swagger-ui-react from 3.25.0 to 3.26.0 in /rest-ui (#38) (<a href="https://github.com/UnisonUI/UnisonUI/commit/6fd92e45be504ef1f2fc680175c3e899f1f3134c">6fd92e45</a>)</li>
+<li><strong>deps-dev:</strong> bump eslint-plugin-import in /rest-ui (#39) (<a href="https://github.com/UnisonUI/UnisonUI/commit/64e36f4d70352640b57bc36d927ec1d4fae423ed">64e36f4d</a>)</li>
+<li><strong>deps-dev:</strong> bump eslint from 7.1.0 to 7.2.0 in /rest-ui (#35) (<a href="https://github.com/UnisonUI/UnisonUI/commit/50d4863e054a79b3fb0d16e93f0704d5bf0b1de9">50d4863e</a>)</li>
+<li><strong>deps-dev:</strong> bump @babel/runtime-corejs3 in /rest-ui (#40) (<a href="https://github.com/UnisonUI/UnisonUI/commit/c6d6a3eb40128f000e1c55f9de72925cdbc6edb4">c6d6a3eb</a>)</li>
+<li><strong>deps-dev:</strong> bump copy-webpack-plugin in /rest-ui (#41) (<a href="https://github.com/UnisonUI/UnisonUI/commit/8387bd75ac9702738c3d307eb93d0090035c65c7">8387bd75</a>)</li>
+<li><strong>deps-dev:</strong> bump react-burger-menu in /rest-ui (#33) (<a href="https://github.com/UnisonUI/UnisonUI/commit/02cf536c0572e1f9cf9ff32f1c77bf84ec14ce6f">02cf536c</a>)</li>
+<li><strong>deps-dev:</strong> bump @babel/preset-env in /rest-ui (#34) (<a href="https://github.com/UnisonUI/UnisonUI/commit/7fc5114df4500361c2d369753190a89f742673d0">7fc5114d</a>)</li>
+<li><strong>deps-dev:</strong> bump @babel/core from 7.10.1 to 7.10.2 in /rest-ui (#36) (<a href="https://github.com/UnisonUI/UnisonUI/commit/55fe66583bacba377e8cc973061c0c3c291d2eb8">55fe6658</a>)</li>
+<li><strong>deps-dev:</strong> bump terser-webpack-plugin in /rest-ui (#37) (<a href="https://github.com/UnisonUI/UnisonUI/commit/1c41ee1b355a46d41d563113e4a7163429b1ea49">1c41ee1b</a>)</li>
+</ul>
+<h3 id="-tests">✔️ Tests</h3>
+<ul>
+<li>💍 Add tests for core (#31) (<a href="https://github.com/UnisonUI/UnisonUI/commit/95e299f3147362426ae5507b7fa7e1682ebe8ed8">95e299f3</a>)</li>
+</ul>
+<h3 id="-documentation">📝 Documentation</h3>
+<ul>
+<li>✏️ Changelog update (<a href="https://github.com/UnisonUI/UnisonUI/commit/9f7869bd748f8b8949b03a45b974ca984eb5d5f5">9f7869bd</a>)</li>
+<li>fix some typos rewrite some docs (<a href="https://github.com/UnisonUI/UnisonUI/commit/9372c7748047c8b52188b4f71f2d0726011f2d9d">9372c774</a>)</li>
+<li>✏️ Write usage doc (<a href="https://github.com/UnisonUI/UnisonUI/commit/06d09b235943a3c23f27d1a2c34d6b16e631e4b8">06d09b23</a>)</li>
+</ul>
+<h3 id="-continuous-integration">🚀 Continuous Integration</h3>
+<ul>
+<li>🎡 Enforce conventional commits (<a href="https://github.com/UnisonUI/UnisonUI/commit/f406903d7a13246daffe27921c8e848eec214ef6">f406903d</a>)</li>
+<li>🎡 Disable test for tags (<a href="https://github.com/UnisonUI/UnisonUI/commit/0e103a667e6df48cf72666334b85a4aceba2d3cf">0e103a66</a>)</li>
+</ul>
+<h3 id="-chore">🍏 Chore</h3>
+<ul>
+<li>🤖 Remove <code>RemoveUnsued</code> rule for scalafix (<a href="https://github.com/UnisonUI/UnisonUI/commit/f3220bda07dc91143f9e069b06b9b7462eb78c62">f3220bda</a>)</li>
+</ul>
+
+  </article>
+</div>
+
+      </div>
+    </main>
+    <footer class="center w-screen"><p class="text-center my-8">UnisonUI &copy; Licence MIT.</p>
+</footer>
+  </div>
+ 
+</body>
+
+</html>
