@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[6471],{4363:function(e){e.exports=JSON.parse('{"permalink":"/releases/page/2","page":2,"postsPerPage":20,"totalPages":2,"totalCount":25,"previousPage":"/releases","nextPage":null,"blogDescription":"Keep yourself up-to-date about all releases","blogTitle":"UnisonUI releases"}')}}]);
